@@ -66,13 +66,10 @@ class CharacterPosition():
         dash = [pos for pos in colon_dash_position if self.mac[pos] == "-"]
 
         if colon == colon_dash_position:
-            flag = True     # Can probably remove this
             self.mac = self.mac, 'colon'
         elif dash == colon_dash_position:
-            flag = True
             self.mac = self.mac, 'dash'
         else:
-            flag = False
             print('Invalid mac-address:', self.mac)
 
         print(self.mac)

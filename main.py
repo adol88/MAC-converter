@@ -32,7 +32,7 @@ def main():
         elif setting_choice == 'l':
             print('Listing mac(s)')
         else:
-            break
+            print('That choice is not recognized.')
 
 if __name__ == "__main__":
     main()

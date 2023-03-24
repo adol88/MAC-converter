@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 # Checks if the mac length is valid
+
 class CharLen:
     
     def __init__(self, mac):
@@ -105,14 +106,15 @@ class CharacterPosition():
 
         if colon == colon_dash_position:
             flag = True
-            self.mac = self.mac[0], 'colon'
+            self.mac = self.mac, 'colon'
         elif dash == colon_dash_position:
             flag = True
-            self.mac = self.mac[0], 'dash'
+            self.mac = self.mac, 'dash'
         else:
             flag = False
             print('Invalid mac-address:', self.mac)
         # This should now be ready to pass into MacPrinter
+        print(self.mac)
 
     def hyphen_hex_place(self):
         pass

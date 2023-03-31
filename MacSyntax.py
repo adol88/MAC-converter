@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Checks the validity of each mac-address that's written into main.py
+from MacFormater import EstablishMac
 
 characters = "abcdef0123456789.-:"
 char_list = [char for char in characters]
@@ -13,7 +15,6 @@ class CharacterValidate():
     def validate(self):
 
         if len(self.mac) == 17:
-
             mac_comp = [c for c in self.mac if char_list.count(c) == 1]
 
             if ''.join(mac_comp) == self.mac:
@@ -41,7 +42,6 @@ class CharacterValidate():
                 print(self.mac, 'has invalid characters')
 
         elif len(self.mac) == 12:
-
             mac_comp = [c for c in self.mac if char_list[0:16].count(c) == 1]
 
             if ''.join(mac_comp) == self.mac:
@@ -65,14 +65,16 @@ class CharacterPosition():
         colon = [pos for pos in colon_dash_position if self.mac[pos] == ":"]
         dash = [pos for pos in colon_dash_position if self.mac[pos] == "-"]
 
-        if colon == colon_dash_position:
+        if colon == colon_dash_position:        # Eventually need to rewrite this if block to somehow only establish mac once
             self.mac = self.mac, 'colon'
+            mac = EstablishMac(self.mac)
+            mac.mac_change()
         elif dash == colon_dash_position:
             self.mac = self.mac, 'dash'
+            mac = EstablishMac(self.mac)
+            mac.mac_change()
         else:
             print('Invalid mac-address:', self.mac)
-
-        print(self.mac)
 
     def cisco_place(self):
 
@@ -80,7 +82,9 @@ class CharacterPosition():
         decimal = [pos for pos in decimal_position if self.mac[pos] == '.']
 
         if decimal == decimal_position:
-            print('Valid Cisco mac address', self.mac)
+            self.mac = self.mac, 'cisco'
+            mac = EstablishMac(self.mac)
+            mac.mac_change()
         else:
             print('Invalid Cisco mac address', self.mac)
 
@@ -88,10 +92,14 @@ class CharacterPosition():
         
         hyphen_position = 6
         if self.mac[hyphen_position] == '-':
-            print('Valid HP mac address', self.mac)
+            self.mac = self.mac, 'hp'
+            mac = EstablishMac(self.mac)
+            mac.mac_change()
         else:
             print('Invalid HP mac address', self.mac)
 
     def string_place(self):
 
-        print(self.mac)
+        self.mac = self.mac, 'string'
+        mac = EstablishMac(self.mac)
+        mac.mac_change()

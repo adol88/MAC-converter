@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from MacSyntax import *
+from MacSyntax import CharacterValidate
 
 def settings_display():
 
@@ -16,8 +16,8 @@ def mac_input():
         macadd = input("Add Mac> ")
         macadd = macadd.lower()
         if macadd:
-            mac = CharLen(macadd)
-            mac = mac.length_check()
+            mac = CharacterValidate(macadd)
+            mac = mac.validate()
         else:
             break
 
@@ -32,7 +32,7 @@ def main():
         elif setting_choice == 'l':
             print('Listing mac(s)')
         else:
-            print('That choice is not recognized.')
+            break
 
 if __name__ == "__main__":
     main()

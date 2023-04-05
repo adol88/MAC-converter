@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# If we want to specify which macs to print out, perhaps we
+# If we want to specify which macs to print out, perhaps we can
 # consolidate every mactype list into an even larger list
 # then, exclude/include as necessary
 string_macs = []
@@ -11,9 +11,10 @@ colon_macs = []
 
 def change_to_string(mac):
 
-    mac_string = []        # This list allows the mac to change
+    mac_string = []        # This list allows the mac to change to a string
     no_string_character = ['.', '-', ':']
 
+    # Consolidates none string characters into string format
     for char in mac:
         if char not in no_string_character:
             mac_string.append(char)
@@ -59,7 +60,7 @@ class EstablishMac:
         change_to_hyphen(changing_mac)
         change_to_colon(changing_mac)
 
-        print(string_macs)
+        print(string_macs)      # Remove these lines when done
         print(hp_macs)
         print(cisco_macs)
         print(hyphen_macs)

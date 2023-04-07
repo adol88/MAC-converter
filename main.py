@@ -11,7 +11,6 @@ def settings_display():
 
 def mac_input():
 
-    print('Example mac for testing: ee:b9:64:3e:c3:91') # Remove line when done
     print("Start adding MAC addresses:")
     while True:
         macadd = input("Add Mac> ")

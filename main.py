@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from MacSyntax import CharacterValidate
+from MacFormater import *
 
 def settings_display():
 
@@ -21,6 +22,19 @@ def mac_input():
         else:
             break
 
+def mac_output():
+
+    print('--String MACs--')
+    string_out = [print(string_mac) for string_mac in EstablishMac.string_macs]
+    print('--HP MACS--')
+    hp_out = [print(hp_mac) for hp_mac in EstablishMac.hp_macs]
+    print('--Cisco MACs--')
+    cisco_out = [print(cisco_mac) for cisco_mac in EstablishMac.cisco_macs]
+    print('--Hyphen MACS--')
+    hyphen_out = [print(hyphen_mac) for hyphen_mac in EstablishMac.hyphen_macs]
+    print('--Colon MACS--')
+    colon_out = [print(colon_mac) for colon_mac in EstablishMac.colon_macs]
+
 # Main portion of program where we select our options
 def main():
 
@@ -30,7 +44,7 @@ def main():
         if setting_choice == 'a':
             mac_input()
         elif setting_choice == 'l':
-            print('Listing mac(s)')
+            mac_output()
         else:
             break
 

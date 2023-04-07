@@ -24,15 +24,15 @@ def mac_input():
 
 def mac_output():
 
-    print('--String MACs--')
+    print('\n--String MACs--')
     string_out = [print(string_mac) for string_mac in EstablishMac.string_macs]
-    print('--HP MACS--')
+    print('\n--HP MACS--')
     hp_out = [print(hp_mac) for hp_mac in EstablishMac.hp_macs]
-    print('--Cisco MACs--')
+    print('\n--Cisco MACs--')
     cisco_out = [print(cisco_mac) for cisco_mac in EstablishMac.cisco_macs]
-    print('--Hyphen MACS--')
+    print('\n--Hyphen MACS--')
     hyphen_out = [print(hyphen_mac) for hyphen_mac in EstablishMac.hyphen_macs]
-    print('--Colon MACS--')
+    print('\n--Colon MACS--')
     colon_out = [print(colon_mac) for colon_mac in EstablishMac.colon_macs]
 
 # Main portion of program where we select our options

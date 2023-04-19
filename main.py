@@ -41,7 +41,7 @@ def file_output():
     except FileExistsError:
         pass
     
-    with open('mac-output.txt', 'a') as f:
+    with open('mac-output.txt', 'w') as f:
         f.write('--String MACs--\n')
         f.writelines(mac for mac in EstablishMac.string_macs)
         f.write('\n--HP MACS--\n')

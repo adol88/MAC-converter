@@ -21,7 +21,7 @@ class CharacterValidate():
                 mac = CharacterPosition(self.mac)
                 mac.hyphen_hex_place()
             else:
-                print(self.mac, 'has invalid characters')
+                print('Invalid Characters:', self.mac)
 
         elif len(self.mac) == 14:
             mac_comp = [c for c in self.mac if char_list[0:17].count(c) == 1]
@@ -30,7 +30,7 @@ class CharacterValidate():
                 mac = CharacterPosition(self.mac)
                 mac.cisco_place()
             else:
-                print(self.mac, 'has invalid characters')
+                print('Invalid Characters:', self.mac)
 
         elif len(self.mac) == 13:
             mac_comp = [c for c in self.mac if char_list[0:18].count(c) == 1]
@@ -39,7 +39,7 @@ class CharacterValidate():
                 mac = CharacterPosition(self.mac)
                 mac.hp_place()
             else:
-                print(self.mac, 'has invalid characters')
+                print('Invalid Characters:', self.mac)
 
         elif len(self.mac) == 12:
             mac_comp = [c for c in self.mac if char_list[0:16].count(c) == 1]
@@ -48,7 +48,7 @@ class CharacterValidate():
                 mac = CharacterPosition(self.mac)
                 mac.string_place()
             else:
-                print(self.mac, 'has invalid characters')
+                print('Invalid Characters:', self.mac)
         else:
             print('Incorrect Length: ', self.mac)
         
@@ -65,12 +65,7 @@ class CharacterPosition():
         colon = [pos for pos in colon_dash_position if self.mac[pos] == ":"]
         dash = [pos for pos in colon_dash_position if self.mac[pos] == "-"]
 
-        if colon == colon_dash_position:        # Eventually need to rewrite this if block to somehow only establish mac once
-            self.mac = self.mac, 'colon'
-            mac = EstablishMac(self.mac)
-            mac.mac_change()
-        elif dash == colon_dash_position:
-            self.mac = self.mac, 'dash'
+        if colon == colon_dash_position or dash == colon_dash_position:
             mac = EstablishMac(self.mac)
             mac.mac_change()
         else:
@@ -82,7 +77,6 @@ class CharacterPosition():
         decimal = [pos for pos in decimal_position if self.mac[pos] == '.']
 
         if decimal == decimal_position:
-            self.mac = self.mac, 'cisco'
             mac = EstablishMac(self.mac)
             mac.mac_change()
         else:
@@ -92,7 +86,6 @@ class CharacterPosition():
         
         hyphen_position = 6
         if self.mac[hyphen_position] == '-':
-            self.mac = self.mac, 'hp'
             mac = EstablishMac(self.mac)
             mac.mac_change()
         else:
@@ -100,6 +93,5 @@ class CharacterPosition():
 
     def string_place(self):
 
-        self.mac = self.mac, 'string'
         mac = EstablishMac(self.mac)
         mac.mac_change()

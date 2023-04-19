@@ -26,36 +26,34 @@ class EstablishMac:
                 mac_string.append(char)
         mac = ''.join(mac_string)
 
-        EstablishMac.string_macs.append(mac)
+        EstablishMac.string_macs.append(mac + '\n')
         return mac
 
     def change_to_hp(mac):
         
         hp_mac = mac[0:6] + '-' + mac[6:]
-        EstablishMac.hp_macs.append(hp_mac)
+        EstablishMac.hp_macs.append(hp_mac + '\n')
 
     def change_to_cisco(mac):
 
         cisco_mac = mac[0:4] + '.' + mac[4:8] + '.' + mac[8:]
-        EstablishMac.cisco_macs.append(cisco_mac)
+        EstablishMac.cisco_macs.append(cisco_mac + '\n')
 
     def change_to_hyphen(mac):
 
         hyphen_mac = mac[0:2] + '-' + mac[2:4] + '-' + mac[4:6] + '-' + mac[6:8] + '-' \
         + mac[8:10] + '-' + mac[10:]
-        EstablishMac.hyphen_macs.append(hyphen_mac)
+        EstablishMac.hyphen_macs.append(hyphen_mac + '\n')
 
     def change_to_colon(mac):
 
         colon_mac = mac[0:2] + ':' + mac[2:4] + ':' + mac[4:6] + ':' + mac[6:8] + ':' \
         + mac[8:10] + ':' + mac[10:]
-        EstablishMac.colon_macs.append(colon_mac)
+        EstablishMac.colon_macs.append(colon_mac + '\n')
 
     def mac_change(self):
 
-        mac = self.mac[0]       # Extract mac from its tuple
-
-        changing_mac = EstablishMac.change_to_string(mac)
+        changing_mac = EstablishMac.change_to_string(self.mac)
         EstablishMac.change_to_hp(changing_mac)
         EstablishMac.change_to_cisco(changing_mac)
         EstablishMac.change_to_hyphen(changing_mac)

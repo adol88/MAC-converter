@@ -13,7 +13,7 @@ class CharacterValidate():
         self.mac = mac
 
     def validate(self):
-        # Checking if the mac is hyphen-colon style
+        # Checking if the mac's length and character set meets the hyphen-colon style
         if len(self.mac) == 17:
             mac_comp = [c for c in self.mac if char_list.count(c) == 1]
 
@@ -22,7 +22,7 @@ class CharacterValidate():
                 mac.hyphen_hex_place()
             else:
                 print('Invalid Characters:', self.mac)
-        # Checking if the mac is Cisco style
+        # Checking if the mac's length and character set meets the Cisco style
         elif len(self.mac) == 14:
             mac_comp = [c for c in self.mac if char_list[0:17].count(c) == 1]
             
@@ -31,7 +31,7 @@ class CharacterValidate():
                 mac.cisco_place()
             else:
                 print('Invalid Characters:', self.mac)
-        # Checking if the mac is HP style
+        # Checking if the mac's length and character set meets the HP style
         elif len(self.mac) == 13:
             mac_comp = [c for c in self.mac if char_list[0:18].count(c) == 1]
 
@@ -40,7 +40,7 @@ class CharacterValidate():
                 mac.hp_place()
             else:
                 print('Invalid Characters:', self.mac)
-        # Checking if the mac is string style
+        # Checking if the mac's length and character set meets the string style
         elif len(self.mac) == 12:
             mac_comp = [c for c in self.mac if char_list[0:16].count(c) == 1]
 

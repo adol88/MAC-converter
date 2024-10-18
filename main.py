@@ -8,6 +8,7 @@ def settings_display():
     print('(a)dd MACs to list')
     print('(l)ist MACs')
     print('(f)ile add MACs')
+    print('(c)sv add MACs')
     print('press \'return/enter\' to escape\n')
 
 def mac_input():
@@ -52,7 +53,22 @@ def file_output():
         f.writelines(mac for mac in EstablishMac.hyphen_macs)
         f.write('\n--Colon MACS--\n')
         f.writelines(mac for mac in EstablishMac.colon_macs)
-# Main portion of program where we select our options
+
+def csv_output():
+
+    import csv
+
+    headers = ['String Macs', 'HP Macs', 'Cisco Macs', 'Hyphen Macs', 'Colon Macs']
+    rows = zip(EstablishMac.string_macs, EstablishMac.hp_macs, EstablishMac.cisco_macs,\
+                EstablishMac.hyphen_macs, EstablishMac.colon_macs)
+
+    with open('mac-output.csv', "w", newline='') as csv_file:
+        writer = csv.writer(csv_file)
+        writer.writerow(headers)
+        for row in rows:
+            writer.writerow(row)
+
+# Main option menu
 def main():
 
     while True:
@@ -64,6 +80,8 @@ def main():
             mac_output()
         elif setting_choice == 'f':
             file_output()
+        elif setting_choice == 'c':
+            csv_output()
         else:
             break
 

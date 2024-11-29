@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from MacSyntax import CharacterValidate
 from MacFormater import *
+import csv
 
 def settings_display():
 
@@ -55,8 +56,6 @@ def file_output():
         f.writelines(mac for mac in EstablishMac.colon_macs)
 
 def csv_output():
-
-    import csv
 
     headers = ['String Macs', 'HP Macs', 'Cisco Macs', 'Hyphen Macs', 'Colon Macs']
     rows = zip(EstablishMac.string_macs, EstablishMac.hp_macs, EstablishMac.cisco_macs,\

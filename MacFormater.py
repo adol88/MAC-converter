@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-# If we want to specify which macs to print out, perhaps we can
-# consolidate every mactype list into an even larger list
-# then, exclude/include as necessary
+# This class takes a mac from an instantiated object and 
+# reformats it. First, it goes through "mac_change" and changes itself into a string, 
+# then goes through each function to adjust into the different formats.
 
 class EstablishMac:
 

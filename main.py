@@ -18,6 +18,7 @@ def mac_input():
     while True:
         macadd = input('>').lower()
         if macadd:
+            macadd = macadd.strip()
             mac = CharacterValidate(macadd)
             mac = mac.validate()
         else:
